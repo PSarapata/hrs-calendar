@@ -1,0 +1,26 @@
+# App
+# Copy your django SECRET_KEY and paste it here:
+SECRET_KEY=
+# 1 = True or 0 = False
+DEBUG=1
+# localhost 127.0.0.1 0.0.0.0 ...
+HOSTS=localhost 127.0.0.1 0.0.0.0
+
+# POSTGRES
+POSTGRES_DB="mydb"
+POSTGRES_USER="myuser"
+POSTGRES_PASSWORD="mypass"
+POSTGRES_PORT=5432
+
+# PGADMIN
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=123
+
+# DJANGO
+DJANGO_SETTINGS_MODULE="core.settings"
+
+# REDIS (channels)
+REDIS_HOST="localhost"
+REDIS_PORT=6379
+
+# remember to rename this file to '.env', cutting off the double '+' sign.
