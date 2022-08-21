@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
+    'django_extensions',
+    'appointments'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,16 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [(os.getenv("REDIS_HOST", default="localhost"), int(os.getenv("REDIST_PORT", default=6379)))],
+        },
+        'ROUTING': 'example_channels.routing.channel_routing',
+    }
+}
 
 TEMPLATES = [
     {
@@ -70,6 +83,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+ASGI_APPLICATION = 'core.asgi.application'
 
 
 # Database
@@ -82,7 +96,7 @@ DATABASES = {
         "USER": os.getenv("POSTGRES_USER"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
         "HOST": "db",
-        "PORT": 5432,
+        "PORT": int(os.getenv("POSTGRES_PORT", default=5432)),
     }
 }
 
@@ -122,7 +136,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 's/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "templates/static"),)
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = "m/"

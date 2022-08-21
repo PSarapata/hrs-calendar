@@ -12,12 +12,14 @@ cryptography==37.0.4
 daphne==3.0.2
 Deprecated==1.2.13
 Django==4.1
+django-extensions==3.2.0
 django-filter==21.1
 django-redis==5.2.0
 djangorestframework==3.13.1
 Faker==13.3.4
 hyperlink==21.0.0
 idna==3.3
+importlib-metadata==4.12.0
 incremental==21.3.0
 Markdown==3.3.6
 mccabe==0.7.0
@@ -44,8 +46,9 @@ sqlparse==0.4.2
 tomli==2.0.1
 Twisted==22.4.0
 txaio==22.2.1
-typing_extensions==4.3.0
+typing-extensions==4.3.0
 validate-cpf==0.1.2
 validate-docbr==1.10.0
 wrapt==1.14.0
+zipp==3.8.1
 zope.interface==5.4.0
